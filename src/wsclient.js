@@ -8,6 +8,10 @@ ws.on('open', function open() {
 
 ws.on('message', dealWithData);
 
+ws.on('close', function close() {
+    console.log('disconnected');
+})
+
 function dealWithData(data) {
     // TODO add function when receive data
     var serverTime = new Date(parseInt(data)).toISOString();

@@ -6,8 +6,8 @@ var connections = 0;
 wss.on('connection', function connection(ws) {
     connections ++;
     console.log('%s:%s connected(%d)', ws._socket.remoteAddress, ws._socket.remotePort, connections);
-    ws.on('message', function message(data) {
-        if (data == 'Request Server Time') {
+    ws.on('message', function message(cmd) {
+        if (cmd == 'Request Server Time') {
             startPushData(ws);
         }
     });
